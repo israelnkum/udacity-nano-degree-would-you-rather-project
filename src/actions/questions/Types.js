@@ -1,0 +1,5 @@
+export const Types = {
+    GET_QUESTIONS: 'GET_QUESTIONS',
+    ADD_QUESTION: 'ADD_QUESTION',
+    CAST_VOTE: 'CAST_VOTE',
+}
