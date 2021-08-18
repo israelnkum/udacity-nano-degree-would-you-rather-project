@@ -11,7 +11,7 @@ function QuestionList(props){
     const {questions} = props
 
     questions.sort(function(x, y){
-        return x.timestamp - y.timestamp;
+        return y.timestamp - x.timestamp;
     })
 
     const questionDetail = (questionId) => {

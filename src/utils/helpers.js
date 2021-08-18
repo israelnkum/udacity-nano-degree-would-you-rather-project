@@ -1,3 +1,3 @@
 export function getPercentage (position, total) {
-    return ((position/total) * 100).toFixed(2) + '%'
+    return ((position/total) * 100).toString().substring(0, 5) + '%'
 }

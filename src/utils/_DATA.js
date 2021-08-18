@@ -23,7 +23,7 @@ let users = {
   },
   aankum: {
     id: 'aankum',
-    name: 'Amos Appiah Nkum',
+    name: 'Amos Nkum',
     avatarURL: '../imgs/aankum.jpg',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',

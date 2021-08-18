@@ -40,7 +40,6 @@ function QuestionDetail(props){
                                 question={question}
                                 avatarURL={users[question.author].avatarURL}
                                 author={users[question.author].name}
-                                totalQuestions={Object.keys(questions).length}
                                 chosen={chosen}
                             />
                             :<UnansweredQuestion

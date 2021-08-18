@@ -5,9 +5,11 @@ import { getPercentage } from '../../utils/helpers'
 
 function AnsweredQuestion(props){
 
-    const {author, avatarURL, question, totalQuestions, chosen} = props
-    const optionOneVotes = question.optionOne.votes
-    const optionTwoVotes = question.optionTwo.votes
+    const {author, avatarURL, question, chosen} = props
+    const optionOneVotes = question.optionOne.votes.length
+    const optionTwoVotes = question.optionTwo.votes.length
+    const totalVotes = optionOneVotes + optionTwoVotes
+    console.log(question)
     return (
         <Card title={'Would you rather?'} extra={author}>
             <Card.Meta
@@ -15,15 +17,15 @@ function AnsweredQuestion(props){
                 description={
                     <List>
                         <List.Item style={{ border: chosen === 'OptionOne' && 'solid gray 1px', padding: 10}}>
-                            <List.Item.Meta title={question.optionOne.text} description={getPercentage(optionOneVotes.length, totalQuestions)}/>
+                            <List.Item.Meta title={question.optionOne.text} description={getPercentage(optionOneVotes, totalVotes)}/>
                             <div>
-                                {optionOneVotes.length}/{totalQuestions} votes
+                                {optionOneVotes}/{totalVotes} votes
                             </div>
                         </List.Item>
                         <List.Item style={{ border: chosen === 'OptionTwo' && 'solid gray 1px', padding: 10}}>
-                            <List.Item.Meta title={question.optionTwo.text} description={getPercentage(optionTwoVotes.length, totalQuestions)}/>
+                            <List.Item.Meta title={question.optionTwo.text} description={getPercentage(optionTwoVotes, totalVotes)}/>
                             <div>
-                                {optionTwoVotes.length}/{totalQuestions} votes
+                                {optionTwoVotes}/{totalVotes} votes
                             </div>
                         </List.Item>
                     </List>
@@ -39,6 +41,5 @@ AnsweredQuestion.propTypes = {
     question: PropTypes.object.isRequired,
     avatarURL: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
-    totalQuestions: PropTypes.number.isRequired,
     chosen: PropTypes.string.isRequired,
 }
